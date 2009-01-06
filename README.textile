@@ -30,8 +30,8 @@ SSBX requires "Prototype":http://prototypejs.org.
 
 h3. Supported SSBs
 
-Windows: <a href="http://bubbleshq.com/api">Bubbles</a>
-Mac OS: <a href="http://fluidapp.com/">Fluid</a>
+* Windows: "Bubbles":http://bubbleshq.com/api
+* Mac OS: "Fluid":http://fluidapp.com/
 
 h3. Notification API
 
