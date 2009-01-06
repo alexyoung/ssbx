@@ -6,7 +6,7 @@ The current version is a basic implementation to test out the feasibility of the
 
 h3. Examples
 
-<code>
+<pre><code>
 if (SSBX.isAvailable()) {
   SSBX.log('hello');
   SSBX.notify('This is a message', 'A message from SSBX');
@@ -14,15 +14,15 @@ if (SSBX.isAvailable()) {
   SSBX.setDockBadge(5);
   SSBX.log(SSBX.availableDriver);
 }
-</code>
+</code></pre>
 
 You can also only run when there's a compatible SSB available like this:
 
-<code>
+<pre><code>
 SSBX.run(function() {
   SSBX.log('hello');
 }
-</code>
+</code></pre>
 
 h2. Requirements
 
