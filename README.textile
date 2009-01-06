@@ -2,7 +2,7 @@ h2. Introduction
 
 SSBX provides a stupidly simple API for supporting Single Site Browsers (SSB) in your website.
 
-The current version is a basic implementation to test out the feasibility of the conceot, and explore how to make a consistent unified API across platforms.
+The current version is a basic implementation to test out the feasibility of the concept, and explore how to make a consistent unified API across platforms.
 
 h3. Examples
 
@@ -26,7 +26,7 @@ SSBX.run(function() {
 
 h2. Requirements
 
-SSBX requires Prototype (prototypejs.org).
+SSBX requires "Prototype":http://prototypejs.org.
 
 h3. Supported SSBs
 
