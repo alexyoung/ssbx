@@ -1,0 +1,70 @@
+h2. Introduction
+
+SSBX provides a stupidly simple API for supporting Single Site Browsers (SSB) in your website.
+
+The current version is a basic implementation to test out the feasibility of the conceot, and explore how to make a consistent unified API across platforms.
+
+h3. Examples
+
+<code>
+if (SSBX.isAvailable()) {
+  SSBX.log('hello');
+  SSBX.notify('This is a message', 'A message from SSBX');
+  SSBX.notifyOnce('5', 'message', 'title');
+  SSBX.setDockBadge(5);
+  SSBX.log(SSBX.availableDriver);
+}
+</code>
+
+You can also only run when there's a compatible SSB available like this:
+
+<code>
+SSBX.run(function() {
+  SSBX.log('hello');
+}
+</code>
+
+h2. Requirements
+
+SSBX requires Prototype (prototypejs.org).
+
+h3. Supported SSBs
+
+Windows: <a href="http://bubbleshq.com/api">Bubbles</a>
+Mac OS: <a href="http://fluidapp.com/">Fluid</a>
+
+h3. Notification API
+
+Show a notification (requires Growl in Mac OS).  Title is optional.
+
+<code>SSBX.notify(message, title)</code>
+
+Show a notification and log it so it doesn't get displayed again.  Logs to a cookie:
+
+<code>SSBX.notifyOnce(unique_id, message, title)</code>
+
+SSBX expects a unique integer ID for messages to be handled this way.
+
+h3. Dock badge icons
+
+Only available in Mac OS (until someone offers a Windows equivalent):
+
+<code>SSBX.setDockBadge(3)</code>
+
+h3. Console logging
+
+To make it easier to debug your JavaScript from within an SSB you can use unified console logging:
+
+<code>SSBX.log('Message')</code>
+
+h3. Capabilities
+
+* Test if the SSB is available: SSBX.isAvailable()
+* Check which SSB is active: SSBX.availableDriver
+
+h3. Drag and drop
+
+
+h2. Library style
+
+I've added semicolons to line endings to make compressing/obscuring the library easier (if you do that sort of thing).
