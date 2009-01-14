@@ -9,8 +9,8 @@ h3. Examples
 <pre><code>
 if (SSBX.isAvailable()) {
   SSBX.log('hello');
-  SSBX.notify('This is a message', 'A message from SSBX');
-  SSBX.notifyOnce('5', 'message', 'title');
+  SSBX.notify({ message: 'This is a message', title: 'Title' });
+  SSBX.notifyOnce({ message: 'This is a message', title: 'Title', unique_id: 5});
   SSBX.setDockBadge(5);
   SSBX.log(SSBX.availableDriver);
 }
