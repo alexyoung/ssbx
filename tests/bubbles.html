@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>SSBX Bubbles Tests</title>
+  <script src="../lib/prototype.js" type="text/javascript"></script>
+  <script src="../lib/unittest.js" type="text/javascript"></script>
+  <script src="../src/ssbx.js" type="text/javascript"></script>
+  <script src="../src/cookies.js" type="text/javascript"></script>
+  <script src="../src/drivers/bubbles.js" type="text/javascript"></script>
+  <script src="../src/drivers/fluid.js" type="text/javascript"></script>
+  <script src="test_helpers.js" type="text/javascript"></script>
+  <script src="notifications.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="test.css" type="text/css" />
+</head>
+<body>
+<h1>SSBX Bubbles Tests</h1>
+<p>
+  Tests for notifications.
+</p>
+
+<!-- Log output -->
+<div id="bubblestestlog"> </div>
+
+<!-- Tests follow -->
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+document.observe('dom:loaded', function() {
+  var tests = Object.extend({
+    testDetection: function() {
+      this.assertEqual('Bubbles', SSBXBase.Internal.findDriver())
+    }
+  }, notificationTests);
+  
+  new Test.Unit.Runner(tests, { testLog: "bubblestestlog" });
+})
+// ]]>
+</script>
+</body>
+</html>

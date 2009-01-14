@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>SSBX Quick Test Stub</title>
+  <title>SSBX Cookies Test</title>
   <script src="../lib/prototype.js" type="text/javascript"></script>
   <script src="../lib/unittest.js" type="text/javascript"></script>
   <script src="../src/ssbx.js" type="text/javascript"></script>
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="test.css" type="text/css" />
 </head>
 <body>
-<h1>SSBX test file</h1>
+<h1>SSBX Cookies Test</h1>
 <p>
   Tests for SSBXBase.Internal.Cookies
 </p>
@@ -27,18 +27,7 @@
 <!-- Tests follow -->
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[
-  ApplicationController = {
-    run: function()
-    {
-      $('TestOutput').innerHTML = 'Test output indicative of a lack of failure.'
-      return true;
-    }
-  }
-  
   new Test.Unit.Runner({
-    
-    // replace this with your real tests
-    
     setup: function() {
       SSBXBase.Internal.Cookies.destroy('test')
       SSBXBase.Internal.Cookies.destroy('test2')

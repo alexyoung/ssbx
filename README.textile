@@ -64,6 +64,9 @@ h3. Capabilities
 
 h3. Drag and drop
 
+h2. Running tests
+
+Run tests inside the appropriate SSB.  There's tests for Bubbles and Fluid.
 
 h2. Library style
 

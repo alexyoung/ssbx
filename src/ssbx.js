@@ -4,8 +4,8 @@ var SSBXBase = {
   CookieName: 'ssbx_cookies',
   
   Supported: {
-    Fluid:   !!(window.fluid),
-    Bubbles: !!(typeof(SSB) != 'undefined')
+    Fluid:   function() { return !!window.fluid },
+    Bubbles: function() { return (typeof(SSB) != 'undefined') }
   },
   
   API: {},
@@ -18,7 +18,7 @@ SSBXBase.Internal = {
   
   findDriver: function() {
     var ssb = $H(SSBXBase.Supported).find(function(ssb) {
-      return ssb[1]
+      return ssb[1]()
     })
     
     if (ssb) {
