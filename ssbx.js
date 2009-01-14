@@ -5,8 +5,8 @@ var SSBXBase = {
   CookieName: 'ssbx_cookies',
   
   Supported: {
-    Fluid:   !!(window.fluid),
-    Bubbles: !!(typeof(SSB) != 'undefined')
+    Fluid:   function() { return !!window.fluid },
+    Bubbles: function() { return (typeof(SSB) != 'undefined') }
   },
   
   API: {},
@@ -19,7 +19,7 @@ SSBXBase.Internal = {
   
   findDriver: function() {
     var ssb = $H(SSBXBase.Supported).find(function(ssb) {
-      return ssb[1]
+      return ssb[1]()
     })
     
     if (ssb) {
@@ -87,19 +87,19 @@ SSBXBase.API = Class.create({
   },
   
   // Only impleemnt the notify method
-  notifyOnce: function(unique_id, message, title) {
+  notifyOnce: function(options) {
     // Display if it hasn't been logged
-    if (!this.internal.displayedNotification(unique_id)) {
+    if (!this.internal.displayedNotification(options['unique_id'])) {
       // Log the message
-      this.internal.logNotification(unique_id);
+      this.internal.logNotification(options['unique_id']);
 
-      return this.delegate.notify(message, title, unique_id);
+      return this.delegate.notify(options);
     }
   },
   
   // Implement these methods to add drivers in SSBXBase.Drivers.YourDriver
-  notify: function(message, title, unique_id) {
-    return this.delegate.notify(message, title, unique_id);
+  notify: function(options) {
+    return this.delegate.notify(options);
   },
   
   setDockBadge: function(count) {
@@ -126,13 +126,14 @@ SSBXBase.Drivers.Fluid = Class.create({
   initialize: function() {
   },
   
-  notify: function(message, title, unique_id) {
+  /* Options: message, title, unique_id */
+  notify: function(options) {
     window.fluid.showGrowlNotification({
-        title: title, 
-        description: message, 
-        priority: 1, 
+        title: options['title'],
+        description: options['message'],
+        priority: 1,
         sticky: false,
-        identifier: unique_id
+        identifier: options['unique_id']
     });
   },
   
@@ -153,9 +154,10 @@ SSBXBase.Drivers.Bubbles = Class.create({
     }
   },
   
-  notify: function(message, title, unique_id) {
+  /* Options: message, title, unique_id */
+  notify: function(options) {
     /* concat these until there's something more intelligent I can do with Bubbles */
-    var text = title + ' ' + message;
+    var text = options['title'] + ' ' + options['message'];
     return SSB.simpleNotify(text);
   },
   

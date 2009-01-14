@@ -37,11 +37,11 @@ h3. Notification API
 
 Show a notification (requires Growl in Mac OS).  Title is optional.
 
-<code>SSBX.notify(message, title)</code>
+<code>SSBX.notify({ message: 'This is a message', title: 'Title' })</code>
 
 Show a notification and log it so it doesn't get displayed again.  Logs to a cookie:
 
-<code>SSBX.notifyOnce(unique_id, message, title)</code>
+<code>SSBX.notifyOnce({ unique_id: 1, message: 'This is a message', title: 'Title' })</code>
 
 SSBX expects a unique integer ID for messages to be handled this way.
 

@@ -7,13 +7,13 @@ var notificationTests = {
   },
   
   testNotify: function() {
-    SSBX.notify('This is a message', 'Hello')
+    SSBX.notify({ message: 'This is a message', title: 'Hello' })
   },
   
   testNotifyOnce: function() { with(this) {
-    SSBX.notifyOnce(1, 'This should be displayed once', 'Hello Once')
+    SSBX.notifyOnce({ unique_id: 1, message: 'This should be displayed once', title: 'Hello Once' })
     wait(1000, function() {
-      SSBX.notifyOnce(1, 'This should be displayed once', 'Hello Once')
+      SSBX.notifyOnce({ unique_id: 1, message: 'This should be displayed once', title: 'Hello Once' })
     })
   }}
 }

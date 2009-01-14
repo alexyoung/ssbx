@@ -5,9 +5,10 @@ SSBXBase.Drivers.Bubbles = Class.create({
     }
   },
   
-  notify: function(message, title, unique_id) {
+  /* Options: message, title, unique_id */
+  notify: function(options) {
     /* concat these until there's something more intelligent I can do with Bubbles */
-    var text = title + ' ' + message;
+    var text = options['title'] + ' ' + options['message'];
     return SSB.simpleNotify(text);
   },
   

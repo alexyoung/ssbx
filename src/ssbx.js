@@ -86,19 +86,19 @@ SSBXBase.API = Class.create({
   },
   
   // Only impleemnt the notify method
-  notifyOnce: function(unique_id, message, title) {
+  notifyOnce: function(options) {
     // Display if it hasn't been logged
-    if (!this.internal.displayedNotification(unique_id)) {
+    if (!this.internal.displayedNotification(options['unique_id'])) {
       // Log the message
-      this.internal.logNotification(unique_id);
+      this.internal.logNotification(options['unique_id']);
 
-      return this.delegate.notify(message, title, unique_id);
+      return this.delegate.notify(options);
     }
   },
   
   // Implement these methods to add drivers in SSBXBase.Drivers.YourDriver
-  notify: function(message, title, unique_id) {
-    return this.delegate.notify(message, title, unique_id);
+  notify: function(options) {
+    return this.delegate.notify(options);
   },
   
   setDockBadge: function(count) {

@@ -2,13 +2,14 @@ SSBXBase.Drivers.Fluid = Class.create({
   initialize: function() {
   },
   
-  notify: function(message, title, unique_id) {
+  /* Options: message, title, unique_id */
+  notify: function(options) {
     window.fluid.showGrowlNotification({
-        title: title, 
-        description: message, 
-        priority: 1, 
+        title: options['title'],
+        description: options['message'],
+        priority: 1,
         sticky: false,
-        identifier: unique_id
+        identifier: options['unique_id']
     });
   },
   
